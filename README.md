@@ -1,4 +1,5 @@
 # Steps we need to complete this task
+This task relies on the [Task1 of web page](https://github.com/Layan002/Web-Task1-designing-a-web-saving-it-with-database/blob/main/README.md)
 To create a new web page that retrieves and displays the most recently added age from the MySQL database, you'll need to follow these steps:
 
 ## Step 1: Create a New PHP File
@@ -33,6 +34,8 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
 ```
+> [!NOTE]
+> Notice that the database $dbname is the same as what we had in task1, it uses the same database table to fetch the last input value from the user. Therefore, the database is the link between web pages.
 
 ## Step 3: Link the New Page
 You can add a link to fetch_last_movement.php from your existing form page (index.php) if you want easy navigation between the pages.
@@ -100,5 +103,10 @@ Modify your index.php file to include a link to fetch_last_movement.php:
   </body>
 </html>
 ```
+# Result
+After finishing the previous steps. This is the web page I've got by searching for this path 'http://localhost/robot-web/last_movement.html' in web browser: 
 
+<img src= 'https://github.com/Layan002/Web-Task2-Take-the-last-data-to-new-web-page/assets/107956591/5043af37-274c-4f13-82d7-fa96b3a19fba' alt= "img" width= 700>
+
+# Video Test
 

@@ -2,10 +2,47 @@
 This task relies on the [Task1 of web page](https://github.com/Layan002/Web-Task1-designing-a-web-saving-it-with-database/blob/main/README.md)
 To create a new web page that retrieves and displays the most recently added age from the MySQL database, you'll need to follow these steps:
 
-## Step 1: Create a New PHP File
-Add the following code to fetch_last_movement.php
+## Step 1: New HTML Page (last_movement.html)
+``` HTML
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Last Movement Display</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      function fetchLastMovement() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "fetch_last_movement.php", true);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.status === "success") {
+              document.getElementById("last-movement").innerText =
+                "Last Movement: " + response.direction;
+            } else {
+              console.error("Error:", response.message);
+            }
+          }
+        };
+        xhr.send();
+      }
 
-## Step 2: Write the PHP Script
+      window.onload = function() {
+        fetchLastMovement();
+      };
+    </script>
+  </head>
+  <body>
+    <div id="last-movement" class="last-movement">Last Movement: Loading...</div>
+  </body>
+</html>
+```
+
+## Step 2: Create a New PHP File
+Create a new php file and name it as: 'fetch_last_movement.php'
+
 ``` PHP
 <?php
 $servername = "localhost";
@@ -37,9 +74,12 @@ $conn->close();
 > [!NOTE]
 > Notice that the database $dbname is the same as what we had in task1, it uses the same database table to fetch the last input value from the user. Therefore, the database is the link between web pages.
 
+> [!NOTE]
+> There is no need to add a new CSS file.
+
+
 ## Step 3: Link the New Page
-You can add a link to fetch_last_movement.php from your existing form page (index.php) if you want easy navigation between the pages.
-Add a Link to index.php
+
 Modify your index.php file to include a link to fetch_last_movement.php:
 
 ``` HTML

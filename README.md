@@ -144,7 +144,7 @@ Modify your index.php file to include a link to fetch_last_movement.php:
 </html>
 ```
 # Result
-After finishing the previous steps. This is the web page I've got by searching for this path 'http://localhost/robot-web/last_movement.html' in web browser: 
+After finishing the previous steps, this is the web page I've got by searching for this path 'http://localhost/robot-web/last_movement.html' in web browser: 
 
 <img src= 'https://github.com/Layan002/Web-Task2-Take-the-last-data-to-new-web-page/assets/107956591/5043af37-274c-4f13-82d7-fa96b3a19fba' alt= "img" width= 700>
 
